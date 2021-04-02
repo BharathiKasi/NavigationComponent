@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.bharathikasi.navigation_component_demo.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_chooseReceipient"
+            app:destination="@id/chooseReceipient"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+        <action
+            android:id="@+id/action_mainFragment_to_viewTransaction"
+            app:destination="@id/viewTransaction"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+        <action
+            android:id="@+id/action_mainFragment_to_viewBalance"
+            app:destination="@id/viewBalance"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/chooseReceipient"
+        android:name="com.bharathikasi.navigation_component_demo.fragment.ChooseReceipient"
+        android:label="fragment_choose_receipient"
+        tools:layout="@layout/fragment_choose_receipient" >
+        <action
+            android:id="@+id/action_chooseReceipient_to_specifyAmount"
+            app:destination="@id/specifyAmount"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewBalance"
+        android:name="com.bharathikasi.navigation_component_demo.fragment.ViewBalance"
+        android:label="fragment_view_balance"
+        tools:layout="@layout/fragment_view_balance" />
+
+    <fragment
+        android:id="@+id/viewTransaction"
+        android:name="com.bharathikasi.navigation_component_demo.fragment.ViewTransaction"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_view_transaction" />
+
+    <fragment
+        android:id="@+id/specifyAmount"
+        android:name="com.bharathikasi.navigation_component_demo.fragment.SpecifyAmount"
+        android:label="fragment_specify_amount"
+        tools:layout="@layout/fragment_specify_amount" >
+        <argument android:name="receipient" android:defaultValue="None"/>
+        <action
+            android:id="@+id/action_specifyAmount_to_confirmation"
+            app:destination="@id/confirmation"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmation"
+        android:name="com.bharathikasi.navigation_component_demo.fragment.Confirmation"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" >
+        <argument android:name="receipient"
+            app:argType="com.bharathikasi.navigation_component_demo.fragment.data_class.Money"
+            />
+    </fragment>
+</navigation>
